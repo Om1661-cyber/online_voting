@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Online Voting System</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+background:#f4f6f9;
+}
+
+.navbar{
+background:#2c3e50;
+color:white;
+padding:15px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.menu a{
+color:white;
+margin-right:20px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.logout{
+background:red;
+padding:6px 12px;
+color:white;
+text-decoration:none;
+border-radius:4px;
+}
+
+.container{
+padding:30px;
+max-width:1000px;
+margin:auto;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+th,td{
+border:1px solid black;
+padding:10px;
+text-align:center;
+}
+
+button{
+padding:10px 20px;
+background:#2c3e50;
+color:white;
+border:none;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="navbar">
+
+<h2>Online Voting System</h2>
+
+{% if session["role"] == "admin" %}
+
+<div class="menu">
+
+<a href="/admin">Dashboard</a>
+<a href="/add_voter">Add Voter</a>
+<a href="/view_voters">View Voters</a>
+<a href="/result">Results</a>
+
+</div>
+
+{% endif %}
+
+<a href="/logout" class="logout">Logout</a>
+
+</div>
+
+<div class="container">
+
+{% block content %}
+
+{% endblock %}
+
+</div>
+
+</body>
+</html>

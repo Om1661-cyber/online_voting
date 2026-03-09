@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Voters List</h2>
+
+<table>
+
+<tr>
+<th>ID</th>
+<th>Username</th>
+<th>Voted</th>
+</tr>
+
+{% for voter in voters %}
+
+<tr>
+
+<td>{{ voter[0] }}</td>
+<td>{{ voter[1] }}</td>
+
+<td>
+
+{% if voter[3] == 1 %}
+Yes
+{% else %}
+No
+{% endif %}
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}

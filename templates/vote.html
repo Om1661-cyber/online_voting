@@ -1,0 +1,52 @@
+{% if already_voted %}
+
+<div style="
+width:450px;
+margin:120px auto;
+padding:30px;
+background:#ffffff;
+border-radius:8px;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+text-align:center;
+">
+
+<h2 style="color:#e74c3c;">Vote Already Submitted</h2>
+
+<p style="font-size:18px; color:#333;">
+You have already cast your vote.<br>
+Each voter is allowed to vote only once.
+</p>
+
+<a href="/logout">
+<button style="
+margin-top:15px;
+padding:10px 20px;
+background:#2c3e50;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+">
+Logout
+</button>
+</a>
+
+</div>
+
+{% else %}
+
+<form method="POST">
+
+{% for candidate in candidates %}
+
+<input type="radio" name="candidate" value="{{ candidate[0] }}" required>
+{{ candidate[1] }}
+<br><br>
+
+{% endfor %}
+
+<button type="submit">Submit Vote</button>
+
+</form>
+
+{% endif %}
